@@ -7,7 +7,15 @@ function get_recipe(name, options)
 		return rdata
 	end
 	recipe.name = rdata.name
+
+	if rdata.normal then
+		rdata = rdata.normal
+	end
+
 	recipe.time = rdata.energy_required or 0.5
+
+
+
 	if rdata.category == 'smelting' then
 		console(options.smeltlvl)
 		recipe.time = recipe.time / tonumber(options.smeltlvl)
